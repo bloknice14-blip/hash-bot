@@ -26,9 +26,9 @@ dp = Dispatcher()
 
 # Ссылки и данные проекта HASHCOIN
 CONTRACT_ADDRESS = "EQDHVvvLPQjoW5CFUHcIvWrKJf4ZTWyb_QpBvXR92g4drUgJ"
-STONFI_URL = f"https://app.ston.fi/swap?chartVisible=true&ft=TON&tt={CONTRACT_ADDRESS}"
-DEDUST_URL = f"https://dedust.io/swap/TON/{CONTRACT_ADDRESS}"
-CHANNEL_URL = "https://t.me/ваш_канал"
+STONFI_URL = f"https://app.ston.fi/swap?chartVisible=true&ft=TON&tt={EQDHVvvLPQjoW5CFUHcIvWrKJf4ZTWyb_QpBvXR92g4drUgJ}"
+DEDUST_URL = f"https://dedust.io/swap/TON/{EQDHVvvLPQjoW5CFUHcIvWrKJf4ZTWyb_QpBvXR92g4drUgJ}"
+CHANNEL_URL = "https://t.me/hashua_ua"
 
 
 def get_main_keyboard():
