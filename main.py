@@ -13,7 +13,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN") or os.getenv("TOKEN") or os.getenv("TELEGRAM_
 
 # 👇 АВАРИЙНЫЙ ВАРИАНТ: Если в Railway переменная упорно не подтягивается, 
 # вставьте ваш токен от BotFather прямо в кавычки ниже:
-FALLBACK_TOKEN = "8865726775:AAG5sibpPPxIvtcD5mA3ThgRdaLWIse6a98" 
+FALLBACK_TOKEN = "" 
 
 TOKEN_TO_USE = BOT_TOKEN if BOT_TOKEN else FALLBACK_TOKEN
 
