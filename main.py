@@ -6,29 +6,24 @@ from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from dotenv import load_dotenv
 
+# Загружаем переменные окружения (если используется .dotenv локально)
 load_dotenv()
 
-# Пробуем найти токен в разных переменных окружения
-BOT_TOKEN = os.getenv("BOT_TOKEN") or os.getenv("TOKEN") or os.getenv("TELEGRAM_TOKEN")
+# Безопасное получение токена бота из переменных окружения (Railway)
+BOT_TOKEN = os.getenv("BOT_TOKEN") or os.getenv("TOKEN")
 
-# 👇 АВАРИЙНЫЙ ВАРИАНТ: Если в Railway переменная упорно не подтягивается, 
-# вставьте ваш токен от BotFather прямо в кавычки ниже:
-FALLBACK_TOKEN = "" 
-
-TOKEN_TO_USE = BOT_TOKEN if BOT_TOKEN else FALLBACK_TOKEN
-
-if not TOKEN_TO_USE or TOKEN_TO_USE == "СЮДА_МОЖНО_ВСТАВИТЬ_ТОКЕН_ПРИ_ЖЕЛАНИИ":
-    raise ValueError("❌ ОШИБКА: Токен не найден! Проверьте переменные в Railway.")
+if not BOT_TOKEN:
+    raise ValueError("❌ ОШИБКА: Токен бота не найден в переменных окружения (BOT_TOKEN)!")
 
 # Инициализация бота и диспетчера
-bot = Bot(token=TOKEN_TO_USE)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-# Ссылки и данные проекта HASHCOIN
+# Адрес смарт-контракта и полностью сформированные ссылки на пулы
 CONTRACT_ADDRESS = "EQDHVvvLPQjoW5CFUHcIvWrKJf4ZTWyb_QpBvXR92g4drUgJ"
-STONFI_URL = f"https://app.ston.fi/swap?chartVisible=true&ft=TON&tt={EQDHVvvLPQjoW5CFUHcIvWrKJf4ZTWyb_QpBvXR92g4drUgJ}"
-DEDUST_URL = f"https://dedust.io/swap/TON/{EQDHVvvLPQjoW5CFUHcIvWrKJf4ZTWyb_QpBvXR92g4drUgJ}"
-CHANNEL_URL = "https://t.me/hashua_ua"
+STONFI_URL = f"https://app.ston.fi/swap?chartVisible=true&ft=TON&tt={CONTRACT_ADDRESS}"
+DEDUST_URL = f"https://dedust.io/swap/TON/{CONTRACT_ADDRESS}"
+CHANNEL_URL = "https://t.me/hashua_ua"  # Замените на ссылку вашего реального канала, если нужно
 
 
 def get_main_keyboard():
